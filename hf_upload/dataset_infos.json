@@ -1,0 +1,30 @@
+{
+  "bhagavad_gita_qa": {
+    "description": "Question-Answer pairs from Edwin Arnold's translation of the Bhagavad Gita",
+    "citation": "@dataset{bhagavad_gita_qa_2025,\n  author    = {sweatSmile},\n  title     = {Bhagavad Gita Question-Answer Dataset},\n  year      = {2025},\n  publisher = {Hugging Face},\n  url       = {https://huggingface.co/datasets/sweatSmile/Bhagavad-Gita-Vyasa-Edwin-Arnold}\n}",
+    "homepage": "https://huggingface.co/datasets/sweatSmile/Bhagavad-Gita-Vyasa-Edwin-Arnold",
+    "license": "cc-by-4.0",
+    "features": {
+      "question": {
+        "dtype": "string",
+        "id": null,
+        "_type": "Value"
+      },
+      "answer": {
+        "dtype": "string",
+        "id": null,
+        "_type": "Value"
+      }
+    },
+    "supervised_keys": null,
+    "builder_name": "bhagavad_gita_qa",
+    "config_name": "default",
+    "version": {
+      "version_str": "1.0.0",
+      "description": null,
+      "major": 1,
+      "minor": 0,
+      "patch": 0
+    }
+  }
+} 
