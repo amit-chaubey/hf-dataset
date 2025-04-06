@@ -1,6 +1,8 @@
 # Environment variables
 .env
 .env.*
+!.env.example.clean
+!.env.sample.clean
 !.env.example
 !.env.sample
 
