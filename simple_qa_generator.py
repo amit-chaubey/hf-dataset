@@ -265,7 +265,16 @@ def generate_qa_pairs(sections: List[str], max_pairs: int,
     # Process sections until we reach max_pairs
     progress_bar = tqdm(total=max_pairs, desc="Generating QA pairs")
     
-    for section in sections:
+    # Skip the first few sections (introductory pages, TOC, etc.) to focus on core content
+    # For a 183-page book, skip roughly the first 10-15% of sections
+    skip_sections = max(1, len(sections) // 10)  # Skip first 10% of sections
+    logger.info(f"Skipping first {skip_sections} sections to focus on core content")
+    
+    for i, section in enumerate(sections):
+        # Skip the first few sections
+        if i < skip_sections:
+            continue
+            
         if len(qa_pairs) >= max_pairs:
             break
         
@@ -275,9 +284,11 @@ def generate_qa_pairs(sections: List[str], max_pairs: int,
         
         Guidelines:
         - Create factual questions that can be directly answered from the text
-        - Vary question types (who, what, when, where, why, how)
-        - Ensure answers are concise and directly from the text
-        - Focus on important information, not trivial details
+        - Focus on the MAIN CONTENT and TEACHINGS, not on book metadata (publisher, dates, etc.)
+        - For religious/philosophical texts, focus on concepts, teachings, principles, and insights
+        - Vary question types (what, how, why, when, where, who) but prioritize "what" and "how" questions
+        - Ensure answers are concise (1-2 sentences maximum) and directly from the text
+        - Focus on important philosophical concepts, not trivial details
         - Do NOT include quotation marks around questions or answers
         - Do NOT number questions (no "1.", "2.", etc.)
         
